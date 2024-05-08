@@ -41,6 +41,10 @@ const post = {
         new: true,
         runValidators: true,
       });
+      if (!updatePost) {
+        handleError(res, 400, '"post" not found');
+        return;
+      }
       handleSuccess(res, updatePost);
     } catch (err) {
       handleError(res, 400, err.message);
